@@ -1,0 +1,46 @@
+.container {
+    margin: 2rem;
+}
+
+.listTodo {
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.textArea {
+    grid-column: 1 / 2;
+}
+
+.dropdownArea {
+    grid-column: 2 / 3;
+}
+
+.todoText {
+    padding-left: 0.2rem;
+}
+
+.noTask {
+    text-align: center;
+}
+
+.todoStatus {
+    color: rgb(139, 138, 138);
+    padding-left: 6px;
+}
+
+.dropdown {
+    margin-left: 1rem;
+    min-width: 8rem;
+}
+
+.btnDanger {
+    grid-column: 3 / 4;
+    cursor: pointer;
+    color: white;
+    background-color: salmon;
+    border-radius: 1rem;
+    outline: none;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+}

@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    position: fixed;
+    height: 3rem;
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.messageToast {
+    min-width: 8rem;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: rgb(36, 194, 36);
+}
+
+.messageToast > span {
+    margin-left: 1rem;
+}
+
+.closeToast {
+    cursor: pointer;
+    padding: 5px 9px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
