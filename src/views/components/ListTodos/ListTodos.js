@@ -35,19 +35,18 @@ function ListTodos(props) {
                                     {new Date(todoss[0].createdAt).toDateString()}
                             </h3>
                             <ul>
-                            {
-                                todoss.map(todo => (
+                            {todoss.map(todo => (
                                     <li key={todo.id} className={style.listTodo}>
                                             <Todo todo={todo}/>
-                                    </li>
-                                ) )   
-                            }
+                                    </li>) 
+                            )}
                             </ul>
                         </div>
                     )
                 );
     }
+    
     return todos;
-};
+}
 
 export default ListTodos;
