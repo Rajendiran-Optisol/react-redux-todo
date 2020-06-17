@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../../../store/actions/';
+import ToastAction from '../../../store/Toast/ToastAction';
 import styles from './Toast.module.scss';
 
 function Toast() {
@@ -8,7 +8,7 @@ function Toast() {
     const dispatch = useDispatch();
 
     const closeHandler = () => {
-        dispatch(actions.closeToast());
+        dispatch(ToastAction.closeToast());
     }
 
     let message = null;

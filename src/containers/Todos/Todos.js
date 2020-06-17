@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
-import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 import ListTodos from '../../components/ListTodos/ListTodos';
-
-import * as actions from '../../store/actions/';
-
+import TodoAction from '../../store/Todo/TodoAction';
 import styles from './Todos.module.scss';
 
 class Todos extends Component {
-
-    addTodoHandler = (text) => {
-        const todo = {
-            id: uuid(),
-            text: text,
-            status: 'PENDING'
-        };
-        this.setState(prevState => ({ todos: prevState.concat(todo) }));
+    componentDidMount() {
+        this.props.fetchTodos();
     }
 
     render() {
@@ -33,7 +24,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    addTodo: (text) => dispatch(actions.addTodo(text))
+    addTodo: (text) => dispatch(TodoAction.addTodo(text)),
+    fetchTodos: () => dispatch(TodoAction.fetchTodos())
 });
 
+export { Todos as UnConnectedTodos };
 export default connect(mapStateToProps, mapDispatchToProps)(Todos);

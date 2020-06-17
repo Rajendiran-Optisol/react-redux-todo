@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import * as actions from '../../store/actions/';
+import TodoAction from '../../store/Todo/TodoAction';
 import styles from './AddTodo.module.scss';
+import Input from '../UI/Input/Input';
 
 
 function AddTodo(props) {
@@ -14,29 +15,19 @@ function AddTodo(props) {
         if (!text)
             return setError('Invalid Input');
 
-        dispatch(actions.addTodo(todoText, "Task Successfully added"));
+        dispatch(TodoAction.addTodo(todoText, "Task Successfully added"));
         props.history.push('/'); // Redirect to base path
     }
 
     return (
         <div className={styles.container}>
-            <div>
-                <input 
-                    type="text" 
-                    placeholder="Create a new task" 
-                    value={text} 
-                    onChange={({ target }) => setText(target.value)} 
-                />
-                {error && <p 
-                            style={{ 
-                                textAlign: 'center', 
-                                color: 'red'
-                            }}
-                          >
-                                {error}
-                          </p>}
-            </div>
-            <br />
+            <Input 
+                type="text"
+                placeHolder="Create a New Task"
+                value={text}
+                changeHandler={({ target }) => setText(target.value)}
+                error={error}
+            />
             <button 
                 style={{ marginTop: '1rem'}} 
                 onClick={() => addTodo(text)}

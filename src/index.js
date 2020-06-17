@@ -4,21 +4,11 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
-import todoReducer from './store/reducers/todo';
-import toastReducer from './store/reducers/toast';
+import store from './store/rootStore';
 
 const history = createBrowserHistory({ basePath: '/' });
-
-const rootReducer = combineReducers({
-  todo: todoReducer,
-  toast: toastReducer
-});
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

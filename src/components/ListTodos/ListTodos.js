@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import getIconClass from '../../utilities/getTaskIconClass';
+import Todo from './Todo/Todo';
 import style from './ListTodos.module.scss';
-import todoStatus from '../../constants/todoStatus';
 
 function ListTodos(props) {
     let todos = <h2 
@@ -38,21 +37,8 @@ function ListTodos(props) {
                             <ul>
                             {
                                 todoss.map(todo => (
-                                    <li 
-                                        key={todo.id} 
-                                        className={style.listTodo}>
-                                            <i 
-                                                className={`fa ${getIconClass(todo.status)}`} 
-                                                aria-hidden="true">
-                                            </i>
-                                            <span 
-                                                className={`${style.todoText} ${todo.status === todoStatus.FINISHED ? style.overLine : ''}`}>
-                                                {todo.text}
-                                            </span>
-                                            <span 
-                                                className={style.todoStatus}>
-                                                    ({todo.status})
-                                            </span>
+                                    <li key={todo.id} className={style.listTodo}>
+                                            <Todo todo={todo}/>
                                     </li>
                                 ) )   
                             }

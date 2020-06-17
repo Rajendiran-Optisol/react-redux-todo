@@ -6,6 +6,7 @@ import './App.scss';
 import Layout from './hoc/Layout/Layout';
 import Todos from './containers/Todos/Todos';
 import Toast from './components/UI/Toast/Toast';
+import Loader from './components/UI/Loader/Loader';
 const AddTodo = lazy(() => import('./components/AddTodo/AddTodo'));
 const ModifyStatus = lazy(() => import('./components/ModifyStatus/ModifyStatus'));
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Toast />
+      <Loader />
       <Suspense fallback={<p>Loading...</p>}>
         <Layout>
           <Switch>
