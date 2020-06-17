@@ -1,4 +1,4 @@
-import MockStore from '../../MockStore/reduxStore.js';
+import MockStore from '../../AddOns/mock/reduxStore.js';
 
 describe('Todo Store', () => {
     let store;
