@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ToastAction from '../../../store/Toast/ToastAction';
+import ToastAction from '../../../../store/Toast/ToastAction';
 import styles from './Toast.module.scss';
 
 function Toast() {

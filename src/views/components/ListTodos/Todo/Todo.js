@@ -1,6 +1,6 @@
 import React from 'react';
-import getIconClass from '../../../utilities/getTaskIconClass';
-import todoStatus from '../../../constants/todoStatus';
+import getIconClass from '../../../../utilities/getTaskIconClass';
+import todoStatus from '../../../../constants/todoStatus';
 import style from './Todo.module.scss';
 
 function Todo(props) {

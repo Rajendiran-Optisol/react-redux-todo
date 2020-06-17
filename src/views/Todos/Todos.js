@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ListTodos from '../../components/ListTodos/ListTodos';
+import ListTodos from '../components/ListTodos/ListTodos';
 import TodoAction from '../../store/Todo/TodoAction';
 import styles from './Todos.module.scss';
 

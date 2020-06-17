@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import TodoAction from '../../store/Todo/TodoAction';
+import TodoAction from '../../../store/Todo/TodoAction';
 import styles from './AddTodo.module.scss';
 import Input from '../UI/Input/Input';
 
@@ -28,10 +28,7 @@ function AddTodo(props) {
                 changeHandler={({ target }) => setText(target.value)}
                 error={error}
             />
-            <button 
-                style={{ marginTop: '1rem'}} 
-                onClick={() => addTodo(text)}
-            >
+            <button style={{ marginTop: '1rem'}} onClick={() => addTodo(text)}>
                 Add Todo
             </button>
         </div>
