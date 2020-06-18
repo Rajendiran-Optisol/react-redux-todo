@@ -21,7 +21,7 @@ const TodoAction = {
 
         return async dispatch => {
             const url = '/add-todo';
-            let response = await HttpUtil.post(url, TodoService, { data: todo });
+            const response = await ApiAction.makeEffect(dispatch, HttpUtil.post, [url, TodoService, { data: todo }]);
             if (response instanceof HttpError)
                 return dispatch(ToastAction.requestToast({ message: response.message, color: 'DANGER' }));
 
@@ -32,7 +32,7 @@ const TodoAction = {
     fetchTodos: () => {
         return async dispatch => {
             const url = '/';
-            let response = await HttpUtil.get(url, TodoService);
+            const response = await ApiAction.makeEffect(dispatch, HttpUtil.get, [url, TodoService]);
             if (response instanceof HttpError)
                 return dispatch(ToastAction.requestToast({ message: response.message, color: 'DANGER' }));
 

@@ -11,3 +11,49 @@
     color: #fff;
 }
 
+.show {
+    display: none;
+}
+
+.profile {
+    display: block;
+}
+
+.profileIcon {
+    position: relative;
+}
+
+.profilePic {
+    display: inline;
+    padding: 0.5rem;
+    margin-right: 0.4rem;
+    border-radius: 100%;
+    background-color: salmon;
+}
+
+.profilePic::after {
+    display: inline-block;
+    content: "";
+    margin-left: 0.3rem;
+    vertical-align: 0.3rem;
+    border-top: 0.3rem solid;
+    border-right: 0.3rem solid transparent;
+    border-bottom: 0;
+    border-left: 0.3rem solid transparent;
+}
+
+.dropdown {
+    padding: 0.5rem;
+    color: black;
+    position: absolute;
+    transform: translate(0, 1rem);
+    border-radius: 0.5rem;
+    background-color: #ccc;
+}
+
+.dropdown > a {
+    display: block;
+    color: black;
+    border-bottom: 1px solid #000;
+    padding: 0.5rem 2rem;
+}

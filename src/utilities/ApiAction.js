@@ -5,6 +5,7 @@ const ApiAction = {
 
     makeEffect: async (dispatch, api, params) => {
         dispatch(LoaderAction.REQUEST());
+        // await new Promise(resolve => setTimeout(() => resolve(true), 3000));
 
         const response = await api(...params);
         

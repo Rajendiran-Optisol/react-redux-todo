@@ -10,12 +10,12 @@ function AddTodo(props) {
     const [error, setError] = useState(null);
     const dispatch = useDispatch();
 
-    const addTodo = (todoText) => {
+    const addTodo = async (todoText) => {
         todoText = text.trim();
         if (!text)
             return setError('Invalid Input');
 
-        dispatch(TodoAction.addTodo(todoText, "Task Successfully added"));
+        await dispatch(TodoAction.addTodo(todoText, "Task Successfully added"));
         props.history.push('/'); // Redirect to base path
     }
 

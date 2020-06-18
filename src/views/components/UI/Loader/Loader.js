@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Backdrop from '../Backdrop/Backdrop';
 import styles from './Loader.module.scss';
 
-function Loader(props) {
+function Loader() {
     const { isLoading } = useSelector(store => store.loader);
     return ((isLoading) &&
         (<div>

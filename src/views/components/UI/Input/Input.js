@@ -9,7 +9,7 @@ function Input(props) {
                 type={props.type} 
                 value={props.value} 
                 placeholder={props.placeHolder} 
-                onChange={props.changeHandler} 
+                onChange={(e) => props.changeHandler(e, props.field)} 
             />
             {props.error && <p style={{ textAlign: 'center', color: 'red' }}>{props.error}</p>}
         </div>

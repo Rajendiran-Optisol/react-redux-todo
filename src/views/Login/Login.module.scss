@@ -1,0 +1,15 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm {
+    width: 80%;
+}
+
+.loginButton {
+    padding: 0.3rem 0.7rem;
+}

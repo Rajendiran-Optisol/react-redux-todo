@@ -5,10 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux';
-import { createBrowserHistory } from 'history';
+import { history } from './utilities/commonUtils';
 import store from './store/rootStore';
-
-const history = createBrowserHistory({ basePath: '/' });
 
 ReactDOM.render(
   <React.StrictMode>
