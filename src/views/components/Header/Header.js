@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AuthAction from '../../../store/Auth/AuthAction';
-import { NavLink, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import navItems from './navItemConfig';
+import NavItem from './NavItem/NavItem';
 import styles from './Header.module.scss';
 
 function Header() {
     const [showDropDown, setDropDown] = useState(false);
+    const userRole = useSelector(state => state.userDetails.role);
     const dispatch = useDispatch();
 
     let dropDownClasses = [styles.dropdown]
@@ -14,19 +16,12 @@ function Header() {
         dropDownClasses = [styles.show];
     }
 
-    const _onClick = () => setDropDown(!showDropDown)
+    const _onClick = () => setDropDown(!showDropDown);
+    const navigation = navItems(userRole).map(item => <NavItem key={item.route} config={item} />);
 
     return (
         <header className={styles.container}>
-            <NavLink exact to="/">
-                Todos
-            </NavLink>
-            <NavLink exact to="/create-tasks">
-                Create Tasks
-            </NavLink>
-            <NavLink exact to="/modify-status">
-                Modify Status
-            </NavLink>
+            {navigation}
             <div className={styles.profile}>
                 <div className={styles.profileIcon}>
                     <div className={styles.profilePic} onClick={_onClick}>R</div>

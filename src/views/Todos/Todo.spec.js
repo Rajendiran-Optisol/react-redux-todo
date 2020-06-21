@@ -1,10 +1,10 @@
 import React from 'react';
-import { UnConnectedTodos } from './Todos';
+import { UnConnectedTodos } from '.';
 
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import ListTodos from '../../components/ListTodos/ListTodos';
+import ListTodos from '../../ListTodos/ListTodos';
 
 configure({ adapter: new Adapter() });
 

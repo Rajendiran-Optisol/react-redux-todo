@@ -3,9 +3,11 @@ const TodoReducer = {
     MODIFY_TODO_STATUS: 'MODIFY_TODO_STATUS',
     DELETE_TODO: 'DELETE_TODO',
     FETCH_TODOS: 'FETCH_TODOS',
+    FETCH_USER_TODOS: 'FETCH_USER_TODOS',
 
     initialState: {
-        todos: []
+        todos: [],
+        userTodos: []
     },
 
     reducer: (state = TodoReducer.initialState, action) => {
@@ -18,6 +20,8 @@ const TodoReducer = {
                 return { ...state, todos: action.payload };
             case TodoReducer.FETCH_TODOS:
                 return { ...state, todos: action.payload };
+            case TodoReducer.FETCH_USER_TODOS:
+                return { ...state, userTodos: action.payload };
             default:
                 return state;
         }

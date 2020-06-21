@@ -19,7 +19,6 @@ const AuthAction = {
         return async (dispatch, getState, api) => {
             const data = { email: userName, password };
             const response = await HttpUtil.post('/login', api.AuthService, { data });
-
             if (response instanceof HttpError) {
                 console.log(response);
                 return;

@@ -45,7 +45,7 @@ class HttpUtils {
             return response;
         }
         catch (ex) {
-            console.log(ex.response);
+            console.log(ex.request, 'message');
             if (ex.response) {
                 if (ex.response.status === 401) {
                     localStorage.removeItem('token');
@@ -59,7 +59,7 @@ class HttpUtils {
                     url: ex.request.responseURL || config.url
                 });
             }
-            else if (ex.request) {
+            else if (ex.request && ex.request.status) {
                 return HttpUtils.makeError({ 
                     status: ex.request.status, 
                     error: ex.request.statusText,
@@ -78,7 +78,7 @@ class HttpUtils {
     }
 
     static makeError(responseError, config) {
-        const error = new HttpError();
+        let error = new HttpError();
         error.status = responseError.status;
         error.message = responseError.message;
         error.error = responseError.error;

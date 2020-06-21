@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import TodoAction from '../../../store/Todo/TodoAction';
-import { todoSelector } from '../../../selectors/todoSelector';
-import todoStatus from '../../../constants/todoStatus';
-import getIconClass from '../../../utilities/getTaskIconClass';
+import TodoAction from '../../store/Todo/TodoAction';
+import { todoSelector } from '../../selectors/todoSelector';
+import todoStatus from '../../constants/todoStatus';
+import getIconClass from '../../utilities/getTaskIconClass';
 import style from './ModifyStatus.module.scss';
 
 
@@ -70,3 +70,4 @@ function ModifyStatus() {
 }
 
 export default ModifyStatus;
+export { ModifyStatus };

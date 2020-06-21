@@ -55,6 +55,15 @@ const TodoAction = {
             dispatch(ToastAction.requestToast({ message: response.data.message, color: 'SUCCESS' }));
             dispatch(TodoAction.fetchTodos());
         }
+    },
+
+    fetchTodoByUsers: () => {
+        return async dispatch => {
+            const url = '/list-todo-by-users';
+            const response = await ApiAction.makeEffect(dispatch, HttpUtil.get, [url, TodoService]);
+            dispatch(ToastAction.requestToast({ message: response.data.message, color: 'SUCCESS' }));
+            dispatch({ type: TodoReducer.FETCH_USER_TODOS, payload: response.data.data });
+        }
     }
 }
 

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Profile.module.scss';
-import UserDetailActions from '../../../store/UserDetails/UserDetailsAction';
+import UserDetailActions from '../../store/UserDetails/UserDetailsAction';
 
-function Profile(props) {
+function Profile() {
     const dispatch = useDispatch();
     const userInfo = useSelector(state => state.userDetails);
 
@@ -30,3 +30,4 @@ function Profile(props) {
 }
 
 export default Profile;
+export { Profile };

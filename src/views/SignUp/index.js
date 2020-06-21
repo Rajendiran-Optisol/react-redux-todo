@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
     };
 }
 
-class SignUp extends Component {
+class SignUpClass extends Component {
     state = {
         form: {
             firstName: {
@@ -115,4 +115,5 @@ class SignUp extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(null, mapDispatchToProps)(SignUpClass);
+export const SignUp = connect(null, mapDispatchToProps)(SignUpClass);;

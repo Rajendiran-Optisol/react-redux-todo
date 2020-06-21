@@ -50,3 +50,4 @@ function ListTodos(props) {
 }
 
 export default ListTodos;
+export { ListTodos };

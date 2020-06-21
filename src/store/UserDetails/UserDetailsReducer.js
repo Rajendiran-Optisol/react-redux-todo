@@ -4,7 +4,8 @@ const UserDetailReducer = {
     initialState: {
         firstName: '',
         lastName: '',
-        email: ''
+        email: '',
+        role: null
     },
 
     reducer: (state = UserDetailReducer.initialState, action) => {

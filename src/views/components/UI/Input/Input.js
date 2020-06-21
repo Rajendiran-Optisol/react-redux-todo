@@ -6,6 +6,7 @@ function Input(props) {
         <div>
             <input 
                 className={styles.input}
+                name={props.name}
                 type={props.type} 
                 value={props.value} 
                 placeholder={props.placeHolder} 

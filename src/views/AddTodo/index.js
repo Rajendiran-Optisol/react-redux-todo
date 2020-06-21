@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import TodoAction from '../../../store/Todo/TodoAction';
+import TodoAction from '../../store/Todo/TodoAction';
 import styles from './AddTodo.module.scss';
-import Input from '../UI/Input/Input';
+import Input from '../components/UI/Input/Input';
 
 
 function AddTodo(props) {
@@ -36,3 +36,4 @@ function AddTodo(props) {
 }
 
 export default AddTodo;
+export { AddTodo };

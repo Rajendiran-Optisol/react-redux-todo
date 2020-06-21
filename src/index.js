@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { history } from './utilities/commonUtils';
 import store from './store/rootStore';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

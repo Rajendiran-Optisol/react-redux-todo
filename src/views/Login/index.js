@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AuthAction from '../../store/Auth/AuthAction';
+import UserDetails from '../../store/UserDetails/UserDetailsAction';
 import Input from '../components/UI/Input/Input';
 import validation from './LoginValidation';
 import styles from './Login.module.scss';
 
 const mapStateToProps = state => {
-    return { auth: state.auth }
+    return { isAuthenticated: state.auth.isAuthenticated }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        authenticate: (userName, password) => dispatch(AuthAction.authenticate(userName, password))
+        authenticate: (userName, password) => dispatch(AuthAction.authenticate(userName, password)),
+        userDetails: () => dispatch(UserDetails.fetchUserDetails())
     }
 }
 
-class Login extends Component {
+class LoginClass extends Component {
     
     state = {
         form: {
@@ -42,7 +44,7 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        if (this.props.auth.isAuthenticated)
+        if (this.props.isAuthenticated)
             this.props.history.push('/');
     }
 
@@ -53,6 +55,7 @@ class Login extends Component {
                     <label>UserName</label>
                     <Input 
                         type="text" 
+                        name="userName"
                         value={this.state.form.userName.text} 
                         placeHolder="User Name" 
                         error={this.state.form.userName.error}
@@ -60,25 +63,26 @@ class Login extends Component {
                     <label>Password</label>
                     <Input 
                         type="text" 
+                        name="password"
                         value={this.state.form.password.text} 
                         placeHolder="Password" 
                         error={this.state.form.password.error}
-                        changeHandler={this.passwordHandler} />
+                        changeHandler={this.userNameHandler} />
                     <button className={styles.loginButton}>Log In</button>
-                    <div><Link to="/sign-up" style={{ color: "#000" }}>Create New Account</Link></div>
+                    <h3><Link to="/sign-up" style={{ color: "#000" }}>Create New Account</Link></h3>
                 </form>
             </div>
         );
     }
 
-    userNameHandler = ({ target }) => {
+    userNameHandler = ({ target: { value, name } }) => {
         this.setState({ 
             form: {
                 ...this.state.form,
-                userName: {
+                [name]: {
                     ...this.state.form.userName,
-                    text: target.value,
-                    error: validation(this.state.form.userName.rules, target.value, 'User Name')
+                    text: value,
+                    error: validation(this.state.form.userName.rules, value, 'User Name')
                 }
             }
         });
@@ -97,10 +101,14 @@ class Login extends Component {
         });
     }
 
-    authenticate = (event) => {
+    authenticate = async (event) => {
         event.preventDefault();
-        this.props.authenticate(this.state.form.userName.text, this.state.form.password.text);
+        await this.props.authenticate(this.state.form.userName.text, this.state.form.password.text);
+        await this.props.userDetails();
+        this.props.history.push('/');
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export { LoginClass as UnconnectedLogin };
+export default connect(mapStateToProps, mapDispatchToProps)(LoginClass);
+export const Login = connect(mapStateToProps, mapDispatchToProps)(LoginClass);

@@ -9,7 +9,6 @@ const UserDetailActions = {
         return async dispatch => {
             const url = '/me';
             const response = await ApiAction.makeEffect(dispatch, HttpUtil.get, [url, AuthService]);
-            console.log(response);
 
             if (response instanceof HttpError)
                 return;
@@ -19,7 +18,9 @@ const UserDetailActions = {
     },
 
     resetUserDetails: () => {
-
+        return dispatch => {
+            dispatch({ type: UserDetailReducer.RESET_USER_DETAILS });
+        }
     }
 };
 
